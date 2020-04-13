@@ -1,0 +1,118 @@
+\documentclass[Doctor]{BJTU-thesis}
+
+%%%%%%%%%%%%%%%%%%%引入一些包%%%%%%%%%%%%%%%%%%%%%55
+\usepackage[ruled,linesnumbered]{algorithm2e}
+ \usepackage{bicaption}
+ \usepackage{fontspec}
+ \newfontfamily\myfont{times.ttf}
+ 
+\renewcommand\labelenumi{(\theenumi)}
+\renewcommand{\algorithmcfname}{算法}
+
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\captionsetup[figure][bi-first]{name=图}
+\captionsetup[figure][bi-second]{name=Figure}
+
+\captionsetup[table][bi-first]{name=表}
+\captionsetup[table][bi-second]{name=Table}
+%%%%%%%%%%%%%%定义一些东西%%%%%%%%%%%%%%%%%%%%%
+
+ 
+
+\newtheorem{theorem}{定理}[section]
+ \newtheorem{lemma}[theorem]{引理}
+\newtheorem{corollary}[theorem]{推论} 
+\newtheorem{assumption}{假设}[chapter]
+%		\newtheorem{Corollary}[Theorem]{推论}
+%\newtheorem{Remark}[Theorem]{注}
+\newtheorem{example}[theorem]{例}
+\newtheorem{definition}[theorem]{定义}
+%\newtheorem{Construction}[Theorem]{构造}
+%		\def\binom#1#2{{#1\choose#2}}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\huaf}{\mathcal{F}}
+\newcommand{\huao}{\mathcal{O}}
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newcommand{\mne}{ \mathbf{MNE}}
+\newcommand{\mnbe}{ \mathbf{MNBE}}
+
+\SetKwInput{KwIn}{输入}
+\SetKwInput{KwOut}{输出}
+
+
+\graphicspath{{./figure/}}
+
+%%%%%%%%%%%%%%%填写封面信息%%%%%%%%%%%%%%%%%%%%
+\author{张三}
+\studentNumber{12345678}
+\advisor{李四 }
+ 
+\advisorTitle{教授}
+ 
+\degreeType{理学}
+\major{概率论与数理统计}
+\researchArea{概率统计}
+\title{毕业论文太难写啦}
+\englishtitle{hello world}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setmainfont{Times New Roman}
+
+%\makeindex
+\makeindex[name=class,options=-s mystyle,title=分类索引,columns=2]
+\makeindex[name=author,options=-s mystyle,title=著者索引,columns=2]
+\makeindex[name=keyword,options=-s mystyle,title=关键词索引,columns=2]
+\begin{document}
+	
+\makecover
+\makeAuthorization
+\makeInfo
+%\include{chapters/thanks}
+\include{chapters/thanksshort}
+
+
+
+
+% 
+\include{chapters/abstract}
+\include{chapters/englishabstract}
+\include{chapters/preface}
+\tableofcontents
+\newpage\pagenumbering{arabic}
+%% 引言
+\include{chapters/chap1}
+% \include{chapters/background}
+\include{chapters/chap2}
+ 
+\include{chapters/summary}
+%	参考文献
+\bibliography{reference/ref}
+% 附录
+\appendix
+ \include{chapters/appendix}	
+%%% 索引
+\chapter*{索引}
+\pagestyle{fancy}
+\addcontentsline{toc}{chapter}{索引}
+ 
+\printindex[class]
+\addcontentsline{toc}{section}{分类索引}
+ 
+\printindex[author]
+\addcontentsline{toc}{section}{著者索引}
+ 
+\printindex[keyword]
+\addcontentsline{toc}{section}{关键词索引}
+ 
+
+
+
+\include{chapters/research}
+%%% 独创性声明	
+\include{chapters/declaration}
+%%　学位论文数据集
+\include{chapters/dataset}
+ 
+
+\end{document}
