@@ -1,0 +1,1 @@
+docker run -i --rm -w "%cd%" -v "%cd%:%cd%" tianon/latex synctex  %*
