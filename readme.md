@@ -26,10 +26,9 @@
 
 有兴趣的同学可以尝试用docker来编译tex文件，linux上xelatex的速度比windows上快很多， 而且不用安装和配latex编译器的环境了比如texlive啥的。
 
+ 
 
-有这么几种选择：
-
-1. win10 上的docker如果有hyper-v支持，性能也是杠杠的， 安装一个docker for win10， 启动之后用这条命令就可以啦
+ win10 上的docker有hyper-v支持，性能也是杠杠的， 安装一个docker for win10， 启动之后用这条命令就可以啦
 
 ``` cmd
 docker run -i --rm -w /data -v "%cd%:/data" tianon/latex xelatex  -synctex=1 -interaction=nonstopmode  RL.tex
@@ -39,7 +38,7 @@ docker run -i --rm -w /data -v "%cd%:/data" tianon/latex xelatex  -synctex=1 -in
 
 - `tianon/latex`是某大佬的docker，里面有了新的textlive。对应的dockerfile 在这里
 > https://github.com/tianon/dockerfiles/blob/master/latex/Dockerfile
-- i
+- i 保持交互
 - --rm 表示运行完就把这个docker container删掉
 - -w 表示后面执行的命令在docker中的工作路径
 - -v 是文件夹映射，%cd% 表示当前文件夹
@@ -56,7 +55,13 @@ docker run -i --rm -w /data -v "%cd%:/data" tianon/latex xelatex  -synctex=1 -in
 现在有一个邪门的办法。如果你用vscode，你可以用`synctex.bat`作为你synctex的应用程序，vscode支持自定义。这个时候就可以跳转了，虽然效率上稍微有所折扣，看起来应该是run一个docker，然后在docker里面synctex，之后再怎么把信号传回来（我不懂，瞎说的，反正能用）
 
 
-当然了，你如果你本来就是linux系统，想用docker，也完全ok，你把我bat文件改成shell的语法就行，没啥区别，主要是%cd%这里改成 "$(pwd)"  就行。
+当然了，你如果你本来就是linux系统，想用docker，也完全ok，你把我bat文件改成shell的语法就行，没啥区别，主要是%cd%这里改成 ”\$(pwd)“ 就行。
+
+
+docker 也可以用我push到阿里云的镜像，  直接pull这个也行
+就是把tianon/latex 换成下面这个
+
+> registry.cn-hangzhou.aliyuncs.com/yuewang/xfdywy:latex
 
 
 .
