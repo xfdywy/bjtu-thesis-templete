@@ -16,7 +16,7 @@
 % \setmainfont{Times New Roman}
 
 %根据用户选项LoadClass
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}[twoside]{ctexbook}}
 \newif\if@isEnMaster\@isEnMasterfalse
 \newif\if@isAcMaster\@isAcMasterfalse
 \newif\if@isDoctor\@isDoctorfalse
@@ -87,10 +87,22 @@
 \renewcommand\title[1]{\def\BJTU@value@title{#1}}
 
 
+%%empty page
+
+\newcommand{\makeEmptyPage}{
+
+ \thispagestyle{empty}{
+	 \ 
+}
+
+}
+
 %版权授权书
 \newcommand{\makeAuthorization}{
+
 	\chapter*{学位论文版权使用授权书}
-	\thispagestyle{empty}
+	 \thispagestyle{empty}
+	
 	本学位论文作者完全了解北京交通大学有关保留、使用学位论文的规定。特授权北京交通大学可以将学位论文的全部或部分内容编入有关数据库进行检索，提供阅览服务，并采用影印、缩印或扫描等复制手段保存、汇编以供查阅和借阅。同意学校向国家有关部门或机构送交论文的复印件和磁盘。学校可以为存在馆际合作关系的兄弟高校用户提供文献传递服务和交换服务。
 	
 	（保密的学位论文在解密后适用本授权说明）
@@ -153,6 +165,8 @@
 			\\
 			\BJTU@label@advisor \BJTU@value@advisor & \BJTU@label@advisorTitle \BJTU@value@advisorTitle \\
 			\\
+%			\BJTU@label@advisor 刘玉婷 & \BJTU@label@advisorTitle 副教授 \\
+%			\\
 			\if@isEnMaster
 			\BJTU@label@engineeringMasterField \BJTU@value@engineeringMasterField& \BJTU@label@degreeLevel \BJTU@value@degreeLevel \\
 			\else
@@ -165,7 +179,7 @@
 
 	\vfill
 	\begin{center}
-		{\songti\zihao{4}北京交通大学\\ \vspace{10pt}2020年4月}
+		{\songti\zihao{4}北京交通大学\\ \vspace{10pt}2020年6月}
 	\end{center}
 }
 
@@ -206,15 +220,16 @@
 \def\BJTU@chapter{}
 \fancypagestyle{BJTU@heading}{
 	\fancyhf{}
-	\fancyhead[L]{
+	\fancyhead[CE]{
 		\if@isDoctor
 		北京交通大学博士学位论文
 		\else
 		北京交通大学硕士学位论文
 		\fi
 	}
-	\fancyhead[R]{\leftmark}
+	\fancyhead[CO]{\leftmark}
 	\fancyfoot[C]{\thepage}
+
 }
 
 
@@ -226,7 +241,8 @@ bottom=2.5cm,
 left=2.5cm,
 right=2.5cm,
 bindingoffset=1cm,
-headheight=15pt
+headheight=15pt,
+twoside 
 ]{geometry}
 
 %% 设置章节格式
@@ -366,7 +382,7 @@ headheight=15pt
 		\end{tabular}
 		\\
 		\vspace{120pt}
-		{\songti\zihao{4}北京交通大学\\\vspace{14pt}2020年4月}
+		{\songti\zihao{4}北京交通大学\\\vspace{14pt}2020年6月}
 	\end{center}
 }
 
@@ -382,9 +398,13 @@ headheight=15pt
 \RequirePackage{caption}
 \DeclareCaptionLabelSeparator{zhspace}{\hspace{1\ccwd}}
 \DeclareCaptionFont{fontsize}{\zihao{5}}
+
+
+
 \captionsetup{
 	font = {fontsize},
 	labelsep = zhspace,
+	justification=centering
 }
 \captionsetup[table]{
 	position = top,

@@ -1,59 +1,81 @@
 		
 		\chapter{引言}
 		
-	 [鼠标左键单击选择该段落，输入替换之。内容为小四号宋体。] 引言（或绪论）简要说明研究工作的目的、范围、相关领域的前人工作和知识空白、理论基础和分析、研究设想、研究方法和实验设计、预期结果和意义等。应言简意赅，不要与摘要雷同，不要成为摘要的注释。一般教科书中有的知识，在引言中不必赘述。
 	 
+		
+		
+		\section{研究背景}
+		
+		
+ 
+		\begin{figure}[h]
+			\centering 
+			\includegraphics[width=3in,height=2in]{rlp}
+	   % 	\caption{  PSI transformation for RNN}
+			\bicaption{  序列决策问题示例}{Illustration for sequential decision making problem}
+			\label{fig:chap1 rlp}
+		\end{figure}
+
+  
+  
+  
+		
+		
+		\section{本文的结构安排}
+		文本的结构安排如下：
+ 
+
+
 	 \section{参考文献示例}
-	 参考文献bib文件放在reference文件夹中，在主文件demo中引用了bib文件，在所有chap中都可以直接cite。比如\cite{silver2016mastering}
-	 
-	 \section{算法框示例}
-	 
-	 \begin{algorithm}[h]
-	 	\caption{ 优化算法}
-	 	\label{gtdmc:alg:minmax}			
-	 	\KwIn{ 迭代次数$ T$，   待学习参数初始值$x_1$ 、 $y_1$ ， 学习率 $\alpha$ }
-	 	\For{$ t = 1, \dots, T $}{
-	 		更新参数:  
-	 		
-	 		$ y_{t+1} = \mathcal{P}_{\mathcal{X}_y}\left(y_t + \alpha_t(\hat{b}_t - \hat{A}_t x_t -\hat{M}_ty_t)\right)  $
-	 		
-	 		$ x_{t+1} = \mathcal{P}_{\mathcal{X}_x}\left(x_t + \alpha_t\hat{A}_t^\top y_t\right) $
-	 	}
-	 	
-	 	
-	 	\KwOut{ 		$ \quad 	 \tilde{x}_T = \frac{\sum_{t=1}^{T}\alpha_t x_t}{\sum_{t=1}^{T}\alpha_t}  \qquad \tilde{y}_T = \frac{\sum_{t=1}^{T}\alpha_t y_t}{\sum_{t=1}^{T}\alpha_t} $	 }				
-	 	
-	 	
-	 \end{algorithm}	 
- 
- \section{图片示例}
- 
- 
- 
- 			\begin{figure}[h]
- 	\centering
- 	\subfloat[a]{
- 		\label{figa}
- 		\includegraphics[width=1.8in,height=1.5in]{a.png}}
- 	\subfloat[b]{
- 		\label{figc}
- 		\includegraphics[width=1.8in,height=1.5in]{a.png}} 
- 	\subfloat[c ]{
- 		\label{fige}
- 		\includegraphics[width=1.8in,height=1.5in]{a.png}}	
- 	
- 	
- 	\subfloat[d ]{
- 		\label{figb}
- 		\includegraphics[width=1.8in,height=1.5in]{a.png}}
- 	\label{Fig1}	
- 	\subfloat[e ]{
- 		\label{figd}
- 		\includegraphics[width=1.8in,height=1.5in]{a.png}}	
- 	\subfloat[f ]{
- 		\label{figf}
- 		\includegraphics[width=1.8in,height=1.5in]{a.png}}		
- 	\bicaption{你好，世界}{Hello world } 
- 	\label{fig1}
- \end{figure}	
- 
+参考文献bib文件放在reference文件夹中，在主文件demo中引用了bib文件，在所有chap中都可以直接cite。比如\cite{silver2016mastering}
+
+\section{算法框示例}
+
+\begin{algorithm}[h]
+	\caption{ 优化算法}
+	\label{gtdmc:alg:minmax}			
+	\KwIn{ 迭代次数$ T$，   待学习参数初始值$x_1$ 、 $y_1$ ， 学习率 $\alpha$ }
+	\For{$ t = 1, \dots, T $}{
+		更新参数:  
+		
+		$ y_{t+1} = \mathcal{P}_{\mathcal{X}_y}\left(y_t + \alpha_t(\hat{b}_t - \hat{A}_t x_t -\hat{M}_ty_t)\right)  $
+		
+		$ x_{t+1} = \mathcal{P}_{\mathcal{X}_x}\left(x_t + \alpha_t\hat{A}_t^\top y_t\right) $
+	}
+	
+	
+	\KwOut{ 		$ \quad 	 \tilde{x}_T = \frac{\sum_{t=1}^{T}\alpha_t x_t}{\sum_{t=1}^{T}\alpha_t}  \qquad \tilde{y}_T = \frac{\sum_{t=1}^{T}\alpha_t y_t}{\sum_{t=1}^{T}\alpha_t} $	 }				
+	
+	
+\end{algorithm}	 
+
+\section{图片示例}
+
+
+
+\begin{figure}[h]
+	\centering
+	\subfloat[a]{
+		\label{figa}
+		\includegraphics[width=1.8in,height=1.5in]{a.png}}
+	\subfloat[b]{
+		\label{figc}
+		\includegraphics[width=1.8in,height=1.5in]{a.png}} 
+	\subfloat[c ]{
+		\label{fige}
+		\includegraphics[width=1.8in,height=1.5in]{a.png}}	
+	
+	
+	\subfloat[d ]{
+		\label{figb}
+		\includegraphics[width=1.8in,height=1.5in]{a.png}}
+	\label{Fig1}	
+	\subfloat[e ]{
+		\label{figd}
+		\includegraphics[width=1.8in,height=1.5in]{a.png}}	
+	\subfloat[f ]{
+		\label{figf}
+		\includegraphics[width=1.8in,height=1.5in]{a.png}}		
+	\bicaption{你好，世界}{Hello world } 
+	\label{fig1}
+\end{figure}	
